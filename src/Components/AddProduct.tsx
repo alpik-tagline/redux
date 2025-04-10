@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-import {
-  Alert,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {Alert, StyleSheet, Text, Image, ScrollView, View} from 'react-native';
 import Input from './Input';
 import {Dropdown} from 'react-native-element-dropdown';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
+import {Button} from './Button';
 
 export default function AddProduct() {
   const [form, setForm] = useState({
@@ -66,7 +60,8 @@ export default function AddProduct() {
           error.response?.data || error.message,
         );
         Alert.alert('Error', 'Something went wrong!');
-      });
+      })
+      .finally(() => navigation.navigate('Welcome'));
   };
 
   return (
@@ -112,21 +107,13 @@ export default function AddProduct() {
       {form.image ? (
         <Image source={{uri: form.image}} style={styles.preview} />
       ) : null}
-
-      <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
-        <Text style={styles.submitBtnTxt}>Submit</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.submitBtn}
-        onPress={() => navigation.goBack()}>
-        <Text style={styles.submitBtnTxt}>Back</Text>
-      </TouchableOpacity>
+      <View style={styles.btns}>
+        <Button text="Submit" onpress={handleSubmit} />
+        <Button text="Back" onpress={() => navigation.goBack()} />
+      </View>
     </ScrollView>
   );
 }
-
-export default AddProduct;
 
 const styles = StyleSheet.create({
   container: {
@@ -178,5 +165,8 @@ const styles = StyleSheet.create({
   submitBtnTxt: {
     color: '#fff',
     fontSize: 16,
+  },
+  btns: {
+    marginLeft: 70,
   },
 });

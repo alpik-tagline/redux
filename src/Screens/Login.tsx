@@ -1,9 +1,10 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import Input from '@components';
+import {Input} from '@components';
 import {useDispatch} from 'react-redux';
-import {loginSuccess} from '@store';
 import axios from 'axios';
+import {loginSuccess} from '@store/slices/authSlice';
+import {Button} from '@components/Button';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -51,9 +52,7 @@ export default function Login() {
           onChangeText={setPassword}
           secureTextEntry
         />
-        <TouchableOpacity style={styles.loginbtn} onPress={handleLogin}>
-          <Text style={styles.loginBtnn}>Login</Text>
-        </TouchableOpacity>
+        <Button text="Login" style={styles.btns} onpress={handleLogin} />
       </View>
     </View>
   );
@@ -89,5 +88,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#007BFF',
     color: 'white',
     lineHeight: 40,
+  },
+  btns: {
+    marginLeft: 90,
+    marginTop: 35,
   },
 });

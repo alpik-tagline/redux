@@ -9,6 +9,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import axios from 'axios';
+import {Button} from '@components/Button';
 
 export default function ProductDetails() {
   const navigation = useNavigation();
@@ -51,7 +52,7 @@ export default function ProductDetails() {
         <TouchableOpacity
           style={styles.goButton}
           onPress={() => navigation.goBack()}>
-          <Text style={styles.goBtn}>Back</Text>
+          <Text style={styles.goBtn}>Bacck</Text>
         </TouchableOpacity>
       </View>
     );
@@ -64,12 +65,7 @@ export default function ProductDetails() {
       <Text style={styles.productTitle}>{product.title}</Text>
       <Text style={styles.productPrice}>$ {product.price}</Text>
       <Text style={styles.description}>{product.description}</Text>
-
-      <TouchableOpacity
-        style={styles.goButton}
-        onPress={() => navigation.goBack()}>
-        <Text style={styles.goBtn}>Back</Text>
-      </TouchableOpacity>
+      <Button text="Back" onpress={() => navigation.goBack()} />
     </View>
   );
 }

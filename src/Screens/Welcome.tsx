@@ -5,14 +5,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   Modal,
-  Button,
   TouchableWithoutFeedback,
 } from 'react-native';
 
 import {useDispatch, useSelector} from 'react-redux';
-import {logout, RootState} from '@store';
-import {ProductList} from '@components';
+import ProductList from '@components/ProductList';
+import {logout, RootState} from '@store/slices/authSlice';
 import {useNavigation} from '@react-navigation/native';
+import {Button} from '@components/Button';
 
 export default function Welcome() {
   const dispatch = useDispatch();
@@ -50,22 +50,16 @@ export default function Welcome() {
         onRequestClose={() => setModalVisible(false)}>
         <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
           <View style={styles.modalOverlay}>
-            <TouchableWithoutFeedback onPress={() => {}}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Welcome to Fetching App</Text>
-                <TouchableOpacity onPress={handleAddProduct}>
-                  <Text style={styles.modalButton}>Add Product</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleLogout}>
-                  <Text style={styles.modalButton}>Logout</Text>
-                </TouchableOpacity>
-                <Button title="Close" onPress={() => setModalVisible(false)} />
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Welcome to Fetching App</Text>
+              <View style={styles.buttons}>
+                <Button text="Add Product" onpress={handleAddProduct} />
+                <Button text="Logout" onpress={handleLogout} />
               </View>
-            </TouchableWithoutFeedback>
+            </View>
           </View>
         </TouchableWithoutFeedback>
       </Modal>
-
       <ProductList />
     </View>
   );
@@ -99,9 +93,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  modalButton: {
-    fontSize: 16,
-    marginVertical: 10,
-    color: 'blue',
+  buttons: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -34,9 +34,11 @@ export default function ProductList() {
     try {
       const url = `https://api.escuelajs.co/api/v1/products/?title=${query}`;
       const res = await axios.get(url);
+
       const unique = Array.from(
         new Map(res.data.map(item => [item.id, item])).values(),
-      );
+      ).reverse();
+
       setAllProducts(unique);
       setDisplayedProducts(unique.slice(0, LIMIT));
       setPage(1);
@@ -103,7 +105,7 @@ export default function ProductList() {
       ) : (
         <FlatList
           data={displayedProducts}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item?.id.toString()}
           renderItem={({item}) => (
             <View style={styles.productList}>
               <TouchableOpacity
@@ -142,7 +144,6 @@ export default function ProductList() {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
