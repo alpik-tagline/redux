@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const LIMIT = 10;
 
-const ProductList = () => {
+export default function ProductList() {
   const [allProducts, setAllProducts] = useState([]);
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -141,9 +141,8 @@ const ProductList = () => {
       )}
     </View>
   );
-};
+}
 
-export default ProductList;
 
 const styles = StyleSheet.create({
   container: {

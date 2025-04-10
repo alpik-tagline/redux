@@ -10,7 +10,7 @@ import React, {useEffect, useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import axios from 'axios';
 
-const ProductDetails = () => {
+export default function ProductDetails() {
   const navigation = useNavigation();
   const route = useRoute();
   const {id} = route.params;
@@ -72,9 +72,7 @@ const ProductDetails = () => {
       </TouchableOpacity>
     </View>
   );
-};
-
-export default ProductDetails;
+}
 
 const styles = StyleSheet.create({
   container: {

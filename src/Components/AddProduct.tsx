@@ -12,7 +12,7 @@ import {Dropdown} from 'react-native-element-dropdown';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
 
-const AddProduct = () => {
+export default function AddProduct() {
   const [form, setForm] = useState({
     title: '',
     price: '',
@@ -124,7 +124,7 @@ const AddProduct = () => {
       </TouchableOpacity>
     </ScrollView>
   );
-};
+}
 
 export default AddProduct;
 

@@ -1,17 +1,13 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {RootState} from '../store/';
+import {RootState} from '@store';
 import {useSelector} from 'react-redux';
-import Login from '../Screens/Login';
-import Welcome from '../Screens/Welcome';
-import AddProduct from '../Components/AddProduct';
-import ProductDetails from '../Screens/ProductDetails';
-import ProductList from '../Components/ProductList';
-
+import {Welcome, Login, ProductDetails} from '@screens/index';
+import {AddProduct, ProductList} from '@components';
 const Stack = createStackNavigator();
 
-const AppNavigation = () => {
+export default function AppNavigation() {
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated,
   );
@@ -32,6 +28,4 @@ const AppNavigation = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
-
-export default AppNavigation;
+}

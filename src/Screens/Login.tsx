@@ -1,11 +1,11 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
-import Input from '../Components/Input';
+import Input from '@components';
 import {useDispatch} from 'react-redux';
-import {loginSuccess} from '../store/slices/authSlice';
+import {loginSuccess} from '@store';
 import axios from 'axios';
 
-const Login = () => {
+export default function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -57,9 +57,8 @@ const Login = () => {
       </View>
     </View>
   );
-};
+}
 
-export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,

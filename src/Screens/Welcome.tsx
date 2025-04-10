@@ -10,13 +10,11 @@ import {
 } from 'react-native';
 
 import {useDispatch, useSelector} from 'react-redux';
-import {logout} from '../store/slices/authSlice';
-import {RootState} from '../store';
-import ProductList from '../Components/ProductList';
+import {logout, RootState} from '@store';
+import {ProductList} from '@components';
 import {useNavigation} from '@react-navigation/native';
 
-
-const Welcome = () => {
+export default function Welcome() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
   const navigation = useNavigation();
@@ -71,9 +69,7 @@ const Welcome = () => {
       <ProductList />
     </View>
   );
-};
-
-export default Welcome;
+}
 
 const styles = StyleSheet.create({
   container: {flex: 1, marginTop: 40},
