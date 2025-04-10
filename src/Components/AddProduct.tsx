@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import {Alert, StyleSheet, Text, Image, ScrollView, View} from 'react-native';
-import Input from './Input';
+import {Input, Button} from '@components/index';
 import {Dropdown} from 'react-native-element-dropdown';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
-import {Button} from './Button';
 
-export default function AddProduct() {
+const AddProduct = () => {
   const [form, setForm] = useState({
     title: '',
     price: '',
@@ -113,7 +112,9 @@ export default function AddProduct() {
       </View>
     </ScrollView>
   );
-}
+};
+
+export default AddProduct;
 
 const styles = StyleSheet.create({
   container: {

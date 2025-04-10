@@ -9,7 +9,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import axios from 'axios';
-import {Button} from '@components/Button';
+import {Button} from '@components/index';
 
 export default function ProductDetails() {
   const navigation = useNavigation();

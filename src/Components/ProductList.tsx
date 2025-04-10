@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import Input from './Input';
+import {Input} from '@components/index';
 import {useNavigation} from '@react-navigation/native';
 
 const LIMIT = 10;
@@ -101,6 +101,7 @@ export default function ProductList() {
       {loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="orange" />
+          <Text style={styles.refresh}>Refreshing</Text>
         </View>
       ) : (
         <FlatList
@@ -175,6 +176,8 @@ const styles = StyleSheet.create({
   },
   emptyContainer: {
     marginTop: 90,
+    textAlign: 'center',
+    marginLeft: 110,
   },
   emptyText: {
     fontSize: 16,
@@ -185,5 +188,12 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
+    marginTop: 200,
+    marginLeft: 5,
+  },
+  refresh: {
+    color: 'orange',
+    textAlign: 'center',
+    marginTop: 10,
   },
 });

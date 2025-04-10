@@ -1,5 +1,5 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 type ButtonProps = {
   text: string;
@@ -8,18 +8,15 @@ type ButtonProps = {
   textStyle?: object;
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  text,
-  onpress,
-  style,
-  textStyle,
-}) => {
+const Button: React.FC<ButtonProps> = ({text, onpress, style, textStyle}) => {
   return (
     <TouchableOpacity style={[styles.btn, style]} onPress={onpress}>
       <Text style={[styles.buttonText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };
+
+export default Button;
 
 const styles = StyleSheet.create({
   btn: {
@@ -30,10 +27,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
     marginLeft: 10,
   },
   buttonText: {

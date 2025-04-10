@@ -9,12 +9,11 @@ import {
 } from 'react-native';
 
 import {useDispatch, useSelector} from 'react-redux';
-import ProductList from '@components/ProductList';
 import {logout, RootState} from '@store/slices/authSlice';
 import {useNavigation} from '@react-navigation/native';
-import {Button} from '@components/Button';
+import {Button, ProductList} from '@components/index';
 
-export default function Welcome() {
+const Welcome = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
   const navigation = useNavigation();
@@ -63,7 +62,9 @@ export default function Welcome() {
       <ProductList />
     </View>
   );
-}
+};
+
+export default Welcome;
 
 const styles = StyleSheet.create({
   container: {flex: 1, marginTop: 40},
@@ -93,8 +94,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  buttons: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  buttons: {},
 });

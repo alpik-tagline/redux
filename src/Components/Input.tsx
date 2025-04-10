@@ -72,7 +72,7 @@ const Input: React.FC<InputProps> = ({
     </View>
   );
 };
-
+export default Input;
 const styles = StyleSheet.create({
   wrapper: {
     marginTop: 15,
@@ -111,5 +111,3 @@ const styles = StyleSheet.create({
     color: '#ff4d4d',
   },
 });
-
-export default Input;

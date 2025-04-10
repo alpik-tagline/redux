@@ -1,10 +1,9 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import {Input} from '@components';
+import {Input, Button} from '@components/index';
 import {useDispatch} from 'react-redux';
 import axios from 'axios';
 import {loginSuccess} from '@store/slices/authSlice';
-import {Button} from '@components/Button';
 
 export default function Login() {
   const dispatch = useDispatch();
