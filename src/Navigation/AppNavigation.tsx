@@ -5,6 +5,7 @@ import {RootState} from '@store';
 import {useSelector} from 'react-redux';
 import {Welcome, Login, ProductDetails} from '@screens/index';
 import {AddProduct, ProductList} from '@components/index';
+
 const Stack = createStackNavigator();
 
 export default function AppNavigation() {

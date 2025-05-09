@@ -86,7 +86,7 @@ export default function ProductList() {
         <ActivityIndicator size="small" color="orange" />
       </View>
     ) : null;
-
+    const test = "l.nkjzxc zxczxc zxcszsnkdjfdf sdfskdflksdflsdf sdfsdfksdf sdfsdlkflksdf sdf"
   return (
     <View style={styles.container}>
       <View style={styles.oneLine}>
@@ -119,12 +119,10 @@ export default function ProductList() {
                 />
               </TouchableOpacity>
               <View style={styles.gaps}>
-                <Text>
-                  {item.title.length > 36
-                    ? item.title.substring(0, 36) + '...'
-                    : item.title}
+                <Text numberOfLines={1} style={{flex: 1}}>
+                  {test}
                 </Text>
-                <Text>Price $ {item.price}</Text>
+                <Text style={{flex: 1}}>Price $ {item.price}</Text>
               </View>
             </View>
           )}
@@ -169,6 +167,7 @@ const styles = StyleSheet.create({
   gaps: {
     gap: 3,
     paddingLeft: 10,
+    flex: 1,
   },
   oneLine: {
     flexDirection: 'row',
